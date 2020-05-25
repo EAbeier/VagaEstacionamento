@@ -19,6 +19,9 @@ public class Controlador {
     public void pagar(){
 
     }
+    public void iniciaEstacionamento(){
+
+    }
 
 
 
