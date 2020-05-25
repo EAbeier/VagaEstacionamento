@@ -1,5 +1,6 @@
 import java.awt.print.Pageable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,49 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Controlador {
+    private Veiculo[] vaga = new Veiculo[60];
+    int qntVeiculos =0;
+
+
+    public int getQntVeiculos() {
+        return qntVeiculos;
+    }
+
+    public  void setEntrada(){
+        for(int i=0; i<vaga.length; i++){
+            if(vaga[i]!= null){
+
+            }if(i==vaga.length){
+                System.out.println("estacionamento lotado!");
+            }
+        }
+    }
+    public void setSaida(){
+        //salva no DAO pela placa
+    }
+
+    public LocalDateTime getEntrada(){
+        LocalDateTime data = LocalDateTime.parse("2017-12-25T20:30:50"/* posteriormente sera o daodata*/);
+        return (data);
+    }
+    //função para buscar data pela placa
+    public String getEntradaFormatada(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss ");
+        return sdf.format(getEntrada());
+    }
+
+    public LocalDateTime getSaida(){
+        LocalDateTime data = LocalDateTime.parse("2017-12-25T20:30:50"/* posteriormente sera o daodata*/);
+        return (data);
+    }
+    public String getSaidaFormatada(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss ");
+        return sdf.format(getSaida());
+    }
+
+    public void getValor(String placa, Date entrada, Date saida){
+        Pagamento.calculaValor(getEntradaFormatada(),getSaidaFormatada());
+    }
 
 
     public void estaciona(){
@@ -20,9 +64,7 @@ public class Controlador {
     public void pagar(){
 
     }
-    public void consultaEstacionamento(){
 
-    }
     public void consultaFluxo(){
 
     }
@@ -55,7 +97,7 @@ public class Controlador {
                     break;
                 }
                 case 4: {
-                    consultaEstacionamento();
+                    System.out.println(getQntVeiculos());
                     break;
                 }
                 case 5: {
