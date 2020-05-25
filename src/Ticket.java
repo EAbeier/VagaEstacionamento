@@ -13,9 +13,7 @@ public class Ticket {
 
     public void getTipoVaga() {
         this.vaga = new HashMap();
-        this.vaga.put("gestante", new Gestante());
-        this.vaga.put("pcd", new PCD());
-        this.vaga.put("idoso",new Idoso());
+        this.vaga.put("especial", new Especial());
         this.vaga.put("comum", new Comum());
     }
 
