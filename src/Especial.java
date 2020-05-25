@@ -1,6 +1,6 @@
-public class PCD extends Vaga {
-    public PCD(){
-        tipoVaga = "PCD";
+public class Especial extends Vaga {
+    public Especial(){
+        tipoVaga = "especial";
     }
 
     @Override
