@@ -20,6 +20,8 @@ public class Controlador {
 
     }
     public void iniciaEstacionamento(){
+        System.out.println("");
+        System.out.println("");
 
     }
 
