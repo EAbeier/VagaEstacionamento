@@ -5,7 +5,7 @@ public class Carro extends Veiculo {
 	private double custoInicial = 2.00;
 	private double custoAdicional = 2.50;
 
-	public Carro (String placa, String tipoVeiculo) {
+	public Carro (String placa, Tipo tipoVeiculo) {
 		super(placa, tipoVeiculo);
 	}
 
