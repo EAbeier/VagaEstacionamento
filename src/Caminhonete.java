@@ -1,18 +1,19 @@
 import java.util.Scanner;
 
 public class Caminhonete extends Veiculo{
+	private double custoInicial = 3.00;
+	private double custoAdicional = 3.50;
 
-
-	public Caminhonete(){
-		String tipoVeiculo = "Caminhonete";
-
+	public Caminhonete(String placa,String tipoVeiculo ){
+		super(placa, tipoVeiculo);
 	}
 
-	public void salvaVeiculo(String placa,String entrada,String saida,String tipo){
-		Scanner sc = new Scanner(System.in);
+	public double getCustoInicial() {
 
-		System.out.println("entre com a placa:");
-		placa = sc.nextLine();
+		return custoInicial;
+	}
 
+	public double getCustoAdicional() {
+		return custoAdicional;
 	}
 }
