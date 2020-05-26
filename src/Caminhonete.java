@@ -4,7 +4,7 @@ public class Caminhonete extends Veiculo{
 	private double custoInicial = 3.00;
 	private double custoAdicional = 3.50;
 
-	public Caminhonete(String placa,String tipoVeiculo ){
+	public Caminhonete(String placa,Tipo tipoVeiculo ){
 		super(placa, tipoVeiculo);
 	}
 
