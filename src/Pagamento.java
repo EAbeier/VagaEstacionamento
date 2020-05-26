@@ -1,7 +1,11 @@
-public class Pagamento {
+public class Pagamento
+{
 
-       public static float calculaValor(String saida, String Entrada){
-               return 0 ;
+       public static double calculaValor(double custoInical, double custoadicional, int tempo)
+       {
+            double valor = 0.00;
+              valor = (tempo - 1) * custoadicional + custoInical;
+               return valor ;
        }
 
 }
