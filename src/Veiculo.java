@@ -1,11 +1,11 @@
 import java.util.Date;
 
 public abstract class Veiculo {
-	private String tipoVeiculo;
+	private Tipo tipoVeiculo;
 	private int hora;
 	private String placa;
 
-	public Veiculo(String placa, String tipoVeiculo) {
+	public Veiculo(String placa, Tipo tipoVeiculo) {
 		this.tipoVeiculo = tipoVeiculo;
 		this.placa = placa;
 
@@ -13,7 +13,7 @@ public abstract class Veiculo {
 		this.hora = date.getHours();
 
 	}
-	public String getTipo(){
+	public Tipo getTipo(){
 		return tipoVeiculo;
 	}
 
