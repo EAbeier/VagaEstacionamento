@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.awt.print.Pageable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -11,21 +13,62 @@ import java.util.Scanner;
 public class Controlador {
     private Veiculo[] vaga = new Veiculo[60];
     int qntVeiculos =0;
+    int qntVeiculosEntrou =0;
+    int QntVeiculosSaiu = 0;
 
 
-    public int getQntVeiculos() {
+    public int getQntVeiculos()
+    {
         return qntVeiculos;
     }
-
-    public  void setEntrada(){
-        for(int i=0; i<vaga.length; i++){
-            if(vaga[i]!= null){
-
-            }if(i==vaga.length){
-                System.out.println("estacionamento lotado!");
-            }
-        }
+    public void getfluxo()
+    {
+        System.out.println("Numeros de entradas: "+qntVeiculosEntrou+"\n" +
+                            " e o numero de saidas: "+ QntVeiculosSaiu);
     }
+
+    public boolean setEntrada(String placa, Tipo tipo)
+    {
+        for(int i=0; i<vaga.length; i++)
+        {
+            if (tipo.equals(Tipo.Carro))
+            {
+                Veiculo carro = new Carro(placa, tipo.Carro);
+                if (vaga[i] == null) {
+                    this.vaga[i] = carro;
+                    qntVeiculos = qntVeiculos + 1;
+                    qntVeiculosEntrou =qntVeiculos +1;
+                    return true;
+                }
+            }
+            if (tipo.equals(tipo.Caminhonete))
+            {
+                Veiculo caminhonete= new Caminhonete(placa, tipo.Caminhonete);
+                if (vaga[i] == null)
+                {
+                    this.vaga[i] = caminhonete;
+                    qntVeiculos = qntVeiculos + 1;
+                    qntVeiculosEntrou =qntVeiculos +1;
+                    return true;
+                }
+            }
+            else if (tipo.equals(tipo.Moto))
+            {
+                Veiculo moto= new Moto(placa, tipo.Moto);
+                if (vaga[i] == null)
+                {
+                    this.vaga[i] = moto;
+                    qntVeiculos = qntVeiculos + 1;
+                    qntVeiculosEntrou =qntVeiculos +1;
+                    return true;
+                }
+            }
+
+
+        }
+        return false;
+    }
+
     public void setSaida(){
         //salva no DAO pela placa
     }
@@ -98,7 +141,7 @@ public class Controlador {
                     break;
                 }
                 case 5: {
-                   getQntVeiculos();
+                    getfluxo();
                     break;
                 }
                 case 99: {
