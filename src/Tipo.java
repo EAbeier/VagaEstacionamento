@@ -1,4 +1,5 @@
-public enum Tipo {
+public enum Tipo
+{
     Carro,
     Caminhonete,
     Moto;
