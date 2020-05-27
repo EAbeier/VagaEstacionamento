@@ -13,10 +13,10 @@ import java.util.Scanner;
 public class Controlador
 {
     Scanner scn = new Scanner(System.in);
-    public Veiculo[] vaga = new Veiculo[60];
-    int qntVeiculos =0;
-    int qntVeiculosEntrou =0;
-    int qntVeiculosSaiu = 0;
+    private Veiculo[] vaga = new Veiculo[60];
+    private int qntVeiculos =0;
+    private int qntVeiculosEntrou =0;
+    private int qntVeiculosSaiu = 0;
 
     public int getQntVeiculos()
     {
