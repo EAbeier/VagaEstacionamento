@@ -2,20 +2,20 @@ import java.util.Date;
 
 public abstract class Veiculo
 {
-	private Tipo tipoVeiculo;
+	private static Tipo tipoVeiculo;
 	private int hora;
 	private String placa;
 
 	public Veiculo(String placa, Tipo tipoVeiculo)
 	{
-		this.tipoVeiculo = tipoVeiculo;
+		tipoVeiculo = tipoVeiculo;
 		this.placa = placa;
 
 		Date date = new Date();
 		this.hora = date.getHours();
 
 	}
-	public Tipo getTipo()
+	public static Tipo getTipo()
 	{
 		return tipoVeiculo;
 	}
@@ -30,6 +30,9 @@ public abstract class Veiculo
 	}
 	public abstract double getCustoInicial();
 	public abstract double getCustoAdicional();
+	public static Tipo getInstance(){
+		return tipoVeiculo;
+	}
 }
 
 

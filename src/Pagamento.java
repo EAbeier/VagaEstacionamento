@@ -1,11 +1,18 @@
+import java.util.Date;
+
 public class Pagamento
 {
+    public static double getCustoHoraInicial(double valor, int tempo){
 
-       public static double calculaValor(double custoInical, double custoadicional, int tempo)
+        double custo = valor;
+        return  custo;
+    }
+       public static double getCustoHoraAdicional(double custoInical, double custoadicional, int tempo)
        {
-            double valor = 0.00;
-              valor = (tempo - 1) * custoadicional + custoInical;
-               return valor ;
+
+            double custo;
+              custo = (tempo - 1) * custoadicional + custoInical;
+               return custo ;
        }
 
 }

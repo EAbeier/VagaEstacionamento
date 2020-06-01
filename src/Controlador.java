@@ -12,121 +12,9 @@ import java.util.Scanner;
 
 public class Controlador
 {
-    Scanner scn = new Scanner(System.in);
-    private Veiculo[] vaga = new Veiculo[60];
-    private int qntVeiculos =0;
-    private int qntVeiculosEntrou =0;
-    private int qntVeiculosSaiu = 0;
-
-    public int getQntVeiculos()
-    {
-        return qntVeiculos;
-    }
-
-    public void getfluxo()
-    {
-        System.out.println("Numeros de entradas: "+qntVeiculosEntrou+"\n" +
-                            " e o numero de saidas: "+ qntVeiculosSaiu);
-    }
-
-    public boolean setEntrada(String placa, Tipo tipo)
-    {
-        for(int i=0; i<vaga.length; i++)
-        {
-            if (tipo.equals(Tipo.Carro))
-            {
-                Veiculo carro = new Carro(placa, tipo.Carro);
-                if (vaga[i] == null)
-                {
-                    this.vaga[i] = carro;
-                    qntVeiculos = qntVeiculos + 1;
-                    qntVeiculosEntrou =qntVeiculosEntrou +1;
-                    return true;
-                }
-            }
-            if (tipo.equals(tipo.Caminhonete))
-            {
-                Veiculo caminhonete= new Caminhonete(placa, tipo.Caminhonete);
-                if (vaga[i] == null)
-                {
-                    this.vaga[i] = caminhonete;
-                    qntVeiculos = qntVeiculos + 1;
-                    qntVeiculosEntrou =qntVeiculos +1;
-                    return true;
-                }
-            }
-            else if (tipo.equals(tipo.Moto))
-            {
-                Veiculo moto= new Moto(placa, tipo.Moto);
-                if (vaga[i] == null)
-                {
-                    this.vaga[i] = moto;
-                    qntVeiculos = qntVeiculos + 1;
-                    qntVeiculosEntrou =qntVeiculos +1;
-                    return true;
-                }
-            }
 
 
-        }
-        return false;
-    }
-
-    public void saiEstacionamento(String placa)
-    {
-
-        for (int i=0; i<vaga.length;i++)
-        {
-            if (this.vaga[i]!=null)
-            {
-                if (placa.equals(this.vaga[i].getPlaca()))
-                {
-                    System.out.println("Saida de Veículo com placa " + this.vaga[i].getPlaca() + " registrada");
-                    pagar(i);
-                    setSaida(i);
-                }
-                else
-                {
-                    System.out.println("placa " + placa + " não encontrada.\n" +
-                            "digite a placa novamente");
-                    placa = scn.next();
-                    placa = placa.toLowerCase();
-                }
-            }
-        }
-    }
-
-
-    public void setSaida(int i)
-    {
-        this.vaga[i]= null;
-        qntVeiculos = qntVeiculos - 1;
-        qntVeiculosSaiu = qntVeiculosSaiu +1;
-    }
-
-
-    public void pagar(int i)
-    {
-        Date data = new Date();
-        if(this.vaga[i]!= null)
-        {
-            int horaAtual = data.getHours();
-            int tempo = horaAtual - this.vaga[i].getHora();
-            if(tempo <= 1 )
-            {
-                double custoHoraInicial = this.vaga[i].getCustoInicial();
-                System.out.println("valor a pagar: " + custoHoraInicial);
-            }
-            else
-            {
-                double custoHoraAdicional = this.vaga[i].getCustoAdicional();
-                double conta = Pagamento.calculaValor(this.vaga[i].getCustoInicial(), custoHoraAdicional, tempo);
-                System.out.println("valor a pagar: " + conta);
-            }
-        }
-    }
-
-    public void iniciaEstacionamento()
+        public void iniciaEstacionamento()
     {
 
         int escolha = 0;
@@ -160,7 +48,7 @@ public class Controlador
                                 String placa = scn.next();
                                 placa = placa.toLowerCase();
                                 Tipo tipo = Tipo.Carro;
-                                setEntrada(placa, tipo);
+                                Ticket.setEntrada(placa, tipo);
                                 System.out.println("entrada registrada");
                                 ret = 1;
                                 break;
@@ -171,7 +59,7 @@ public class Controlador
                                 String placa = scn.next();
                                 placa = placa.toLowerCase();
                                 Tipo tipo = Tipo.Caminhonete;
-                                setEntrada(placa, tipo);
+                                Ticket.setEntrada(placa, tipo);
                                 System.out.println("entrada registrada");
                                 ret = 1;
                                 break;
@@ -182,7 +70,7 @@ public class Controlador
                                 String placa = scn.next();
                                 Tipo tipo = Tipo.Moto;
                                 placa = placa.toLowerCase();
-                                setEntrada(placa, tipo);
+                                Ticket.setEntrada(placa, tipo);
                                 System.out.println("entrada registrada");
                                 ret = 1;
                                 break;
@@ -203,17 +91,17 @@ public class Controlador
                     System.out.println("Entre com a placa do veículo:");
                     String placa = scn.next();
                     placa = placa.toLowerCase();
-                    saiEstacionamento(placa);
+                    Ticket.saiEstacionamento(placa);
                     break;
                 }
                 case 3:
                 {
-                    System.out.println(getQntVeiculos());
+                    System.out.println(Vaga.getQntVeiculos());
                     break;
                 }
                 case 4:
                 {
-                    getfluxo();
+                    Vaga.getfluxo();
                     break;
                 }
                 case 99:
