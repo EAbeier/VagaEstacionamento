@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Controlador
 {
-    Scanner scn = new Scanner(System.in);
+
 
         public void iniciaEstacionamento()
     {
